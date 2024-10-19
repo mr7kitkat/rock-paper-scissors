@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(https://www.toptal.com/designers/subtlepatterns/uploads/repeated-square-dark.png)
+    #9611ff;
+  background-blend-mode: color-dodge;
+  height: 100%;
+  width: 100%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+/* header */
+header {
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.player {
+  border-radius: 26px;
+  padding: 4px 8px;
+  width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.avatar {
+  height: auto;
+  width: 100%;
+  max-width: 40px;
+}
+
+.score {
+  font-size: 26px;
+  margin-right: 16px;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  background-color: rgb(63, 0, 122);
+}
+
+footer a {
+  color: white;
+}
+
+/* main - game area */
+main {
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.move {
+  height: auto;
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 50px;
+  border-radius: 50%;
+}
+
+/* Popup menu */
+.popup {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+  border: 10px solid orange;
+  background: url(https://www.toptal.com/designers/subtlepatterns/uploads/circle-blues.png)
+    gold;
+  background-blend-mode: color-dodge;
+  justify-content: center;
+  align-items: center;
+  margin-top: 220px;
+}
+
+.popup [type="radio"] {
+  display: none;
+}
+
+/* Player registration */
+.player-registration {
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.player-registration input,
+.player-registration label {
+  outline: none;
+  border: 5px solid orange;
+  background-color: rgb(255, 238, 0);
+  padding: 2px 4px;
+  margin: 4px;
+  color: rgb(135, 88, 0);
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.player-registration input[type="name"] {
+  color: #9611ff;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.choose-gender {
+  justify-content: space-between;
+}
+
+.choose-gender label {
+  width: 40%;
+  text-align: center;
+}
+
+.selected {
+  background-color: #9611ff !important;
+  color: white !important;
+  border: 5px solid #700bbd !important;
+}
+
+/* Player choice */
+.player-choice img {
+  height: auto;
+  width: 100%;
+  max-width: 100px;
+}
+
+.player-choice {
+  width: 100%;
+  max-width: 600px;
+  justify-content: space-around;
+}
+
+.player-choice label {
+  outline: none;
+  border: 5px solid orange;
+  background-color: rgb(255, 238, 0);
+  padding: 30px;
+  border-radius: 50%;
+}
+
+.player-choice .selected {
+  background-color: white !important;
+}

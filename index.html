@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <section class="popup entry flex">
+      <form action="#" class="player-registration flex hidden">
+        <input type="name" placeholder="Player Name" />
+        <div class="choose-gender flex">
+          <label for="m"
+            >Male<input type="radio" name="gender" id="m" />
+          </label>
+          <label for="f"
+            >Female<input type="radio" name="gender" id="f" />
+          </label>
+        </div>
+        <input type="submit" value="play" />
+      </form>
+
+      <form action="#" class="player-choice flex">
+        <label for="r"
+          ><input type="radio" name="move" id="r" /><img
+            src="./images/r.png"
+            alt="Rock"
+        /></label>
+        <label for="p"
+          ><input type="radio" name="move" id="p" /><img
+            src="./images/p.png"
+            alt="Paper"
+        /></label>
+        <label for="s"
+          ><input type="radio" name="move" id="s" /><img
+            src="./images/s.png"
+            alt="Scissors"
+        /></label>
+      </form>
+    </section>
+
+    <header class="flex hidden">
+      <div class="player flex">
+        <img src="./images/man.png" alt="avatar" class="avatar" />
+        <span class="score">0</span>
+      </div>
+      <div class="player flex">
+        <img src="./images/ai.png.png" alt="avatar" class="avatar" />
+        <span class="score">0</span>
+      </div>
+    </header>
+    <main class="flex hidden">
+      <div class="move">
+        <img src="./images/p.png" alt="" class="move-image" />
+      </div>
+      <div class="move">
+        <img src="./images/r.png" alt="" class="move-image" />
+      </div>
+    </main>
+    <footer>
+      <p>The game is created by <a href="">mr7kitkat</a></p>
+      <p>A part of The Odin Project</p>
+    </footer>
+  </body>
+</html>
