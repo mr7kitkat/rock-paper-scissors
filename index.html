@@ -7,35 +7,29 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <script src="./scripts/main.js" defer></script>
   </head>
-  <body>
-    <section class="popup entry flex">
-      <form action="#" class="player-registration flex hidden">
+  <body class="flex">
+    <section class="popup flex hidden">
+      <form action="#" class="registration flex hidden">
         <input type="name" placeholder="Player Name" />
-        <div class="choose-gender flex">
-          <label for="m"
-            >Male<input type="radio" name="gender" id="m" />
-          </label>
-          <label for="f"
-            >Female<input type="radio" name="gender" id="f" />
-          </label>
-        </div>
+
         <input type="submit" value="play" />
       </form>
 
-      <form action="#" class="player-choice flex">
+      <form action="#" class="choice flex hidden">
         <label for="r"
-          ><input type="radio" name="move" id="r" /><img
+          ><input type="radio" name="choice" id="r" value="0" /><img
             src="./images/r.png"
             alt="Rock"
         /></label>
         <label for="p"
-          ><input type="radio" name="move" id="p" /><img
+          ><input type="radio" name="choice" id="p" value="1" /><img
             src="./images/p.png"
             alt="Paper"
         /></label>
         <label for="s"
-          ><input type="radio" name="move" id="s" /><img
+          ><input type="radio" name="choice" id="s" value="2" /><img
             src="./images/s.png"
             alt="Scissors"
         /></label>
@@ -43,21 +37,21 @@
     </section>
 
     <header class="flex hidden">
-      <div class="player flex">
+      <div class="player user flex">
         <img src="./images/man.png" alt="avatar" class="avatar" />
         <span class="score">0</span>
       </div>
-      <div class="player flex">
+      <div class="player ai flex">
         <img src="./images/ai.png.png" alt="avatar" class="avatar" />
         <span class="score">0</span>
       </div>
     </header>
-    <main class="flex hidden">
-      <div class="move">
-        <img src="./images/p.png" alt="" class="move-image" />
+    <main class="flex game_area hidden">
+      <div class="move user">
+        <img src="" alt="" class="move-image" />
       </div>
-      <div class="move">
-        <img src="./images/r.png" alt="" class="move-image" />
+      <div class="move ai">
+        <img src="" alt="" class="move-image" />
       </div>
     </main>
     <footer>

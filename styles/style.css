@@ -2,16 +2,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* variables */
+  --backgroundimg: url(https://www.toptal.com/designers/subtlepatterns/uploads/repeated-square-dark.png);
+  --base_font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --hero-color-main: #9611ff;
+  --white: white;
+  --animation_timing: 0.2s all linear;
+  --orange_border: 1px solid orange;
 }
 
 body {
-  background: url(https://www.toptal.com/designers/subtlepatterns/uploads/repeated-square-dark.png)
-    #9611ff;
+  background: var(--backgroundimg) var(--hero-color-main);
   background-blend-mode: color-dodge;
-  height: 100%;
+  /* height should be equals to device height */
+  height: 100vh;
   width: 100%;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  max-height: 1560px;
+  max-width: 1560px;
+  font-family: var(--base_font);
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {
@@ -24,6 +35,9 @@ body {
 
 /* header */
 header {
+  position: fixed;
+  top: 0;
+  width: auto;
   padding: 16px;
   justify-content: space-between;
 }
@@ -34,7 +48,8 @@ header {
   width: 100px;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--white);
+  margin: 0 10px;
 }
 
 .avatar {
@@ -53,18 +68,19 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: white;
+  color: var(--white);
   padding: 8px;
   text-align: center;
   background-color: rgb(63, 0, 122);
 }
 
 footer a {
-  color: white;
+  color: var(--white);
 }
 
 /* main - game area */
 main {
+  width: 100%;
   margin-top: 30px;
   justify-content: space-around;
 }
@@ -73,23 +89,23 @@ main {
   height: auto;
   width: 100%;
   max-width: 400px;
-  background-color: white;
+  background-color: var(--white);
   padding: 50px;
   border-radius: 50%;
 }
 
 /* Popup menu */
 .popup {
+  --bg_img: url(https://www.toptal.com/designers/subtlepatterns/uploads/circle-blues.png);
   height: auto;
   width: 100%;
   padding: 20px;
-  border: 10px solid orange;
-  background: url(https://www.toptal.com/designers/subtlepatterns/uploads/circle-blues.png)
-    gold;
+  border: var(--orange_border);
+  border-width: 10px;
+  background: var(--bg_img) gold;
   background-blend-mode: color-dodge;
   justify-content: center;
   align-items: center;
-  margin-top: 220px;
 }
 
 .popup [type="radio"] {
@@ -97,16 +113,17 @@ main {
 }
 
 /* Player registration */
-.player-registration {
+.registration {
   flex-direction: column;
   width: 100%;
   max-width: 320px;
 }
 
-.player-registration input,
-.player-registration label {
+.registration input,
+.registration label {
   outline: none;
-  border: 5px solid orange;
+  border: var(--orange_border);
+  border-width: 5px;
   background-color: rgb(255, 238, 0);
   padding: 2px 4px;
   margin: 4px;
@@ -116,49 +133,46 @@ main {
   font-weight: bolder;
 }
 
-.player-registration input[type="name"] {
-  color: #9611ff;
+.registration input[type="name"] {
+  color: var(--hero-color-main);
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.choose-gender {
+.gender {
   justify-content: space-between;
 }
 
-.choose-gender label {
-  width: 40%;
+.gender label {
+  width: 48%;
   text-align: center;
 }
 
-.selected {
-  background-color: #9611ff !important;
-  color: white !important;
-  border: 5px solid #700bbd !important;
-}
-
 /* Player choice */
-.player-choice img {
+.choice img {
   height: auto;
   width: 100%;
   max-width: 100px;
 }
 
-.player-choice {
+.choice {
   width: 100%;
   max-width: 600px;
   justify-content: space-around;
 }
 
-.player-choice label {
+.choice label {
   outline: none;
-  border: 5px solid orange;
+  border: var(--orange_border);
+  border-width: 5px;
   background-color: rgb(255, 238, 0);
   padding: 30px;
   border-radius: 50%;
 }
 
-.player-choice .selected {
-  background-color: white !important;
+.choice label:hover {
+  border-color: var(--hero-color-main);
+  background-color: white;
+  transition: 0.2s all linear;
 }
