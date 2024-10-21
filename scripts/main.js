@@ -16,15 +16,10 @@
 
 // ============ HELPER FUNCTION DECLARATION ================
 
-// GLOBAL ARRAY FOR ROCK PAPER AND SCISSORS
-const CHOICES = ["r", "p", "s"];
-
 // Here 'rock = 0, paper = 1, scissors = 2'
 // This is a helper function
 // iT WILL HELP OUR AI to make random CHOICES in the game.
-function random_choice() {
-  return Math.floor(Math.random() * 3);
-}
+const random_choice = () => Math.floor(Math.random() * 3);
 
 // An Object Constructor function, to onboard players in the game
 // YOU NEED only name to onboard a player -
@@ -38,6 +33,7 @@ function INITIATE_PLAYER(name, score = 0, move = 0) {
 // fight, this function takes two object and cros their moves
 // based on that it updates score
 function fight(player1, player2) {
+  // Here 'rock = 0, paper = 1, scissors = 2'
   const p1move = player1.move;
   const p2move = player2.move;
   //
@@ -86,11 +82,12 @@ function checkWinner(player1, player2) {
 // Make image cache so that browser doest have to make
 // seqencial requests
 const filepath = "./images/";
-const images = CHOICES.map((item) => {
+const images = ["r", "p", "s"].map((item) => {
   const image = new Image();
   image.src = filepath + item + ".png";
   return image;
 });
+``;
 
 // animation ------------
 function show_component(DOM_Node) {
@@ -106,12 +103,15 @@ const computer = new INITIATE_PLAYER("AI");
 const player = new INITIATE_PLAYER("new_player");
 
 //=========== DOM OBJECT DECLARATION =================
-const registration_form = document.querySelector(".registration");
+// popup components
+const main_popup = document.querySelector(".popup");
+const registration_form = main_popup.querySelector(".registration");
+const choice_form = main_popup.querySelector(".choice");
+// winner
 const winner_popup = document.querySelector(".show-winner");
 const winner_name = winner_popup.querySelector(".name");
 const next_game = winner_popup.querySelector(".nextGame");
-const choice_form = document.querySelector(".choice");
-const main_popup = registration_form.parentElement;
+// board section
 const game_area = document.querySelector("main");
 const header = document.querySelector("header");
 const continue_game = document.querySelector(".continue");
@@ -121,7 +121,6 @@ const continue_game = document.querySelector(".continue");
 //     1. name (Optional because it can be generated randomly if user doesn't provide ),
 //     3. play (which starts the game)
 //
-
 // AS SOON document LOADS IT POPUP THE REGISTRATION FORM
 document.addEventListener("DOMContentLoaded", function () {
   show_component(main_popup);
@@ -191,6 +190,7 @@ inputs.forEach((input) => {
   });
 });
 
+// Next game part
 next_game.addEventListener("click", function () {
   // Setting values to default
   player.move = 0;
