@@ -10,7 +10,7 @@
     <script src="./scripts/main.js" defer></script>
   </head>
   <body class="flex">
-    <section class="popup flex hidden">
+    <section class="popup flex">
       <form action="#" class="registration flex hidden">
         <input type="name" placeholder="Player Name" />
 
@@ -34,6 +34,14 @@
             alt="Scissors"
         /></label>
       </form>
+
+      <section class="show-winner flex">
+        <div class="greetings">
+          <span>Congratulations,</span>
+          <span class="name"></span>
+        </div>
+        <a href="#" class="nextGame btn">Play one more time!</a>
+      </section>
     </section>
 
     <header class="flex hidden">
@@ -47,12 +55,15 @@
       </div>
     </header>
     <main class="flex game_area hidden">
-      <div class="move user">
-        <img src="" alt="" class="move-image" />
+      <div class="players-move flex">
+        <div class="move user">
+          <img src="" alt="" class="move-image" />
+        </div>
+        <div class="move ai">
+          <img src="" alt="" class="move-image" />
+        </div>
       </div>
-      <div class="move ai">
-        <img src="" alt="" class="move-image" />
-      </div>
+      <a href="#" class="continue btn">Continue to next round</a>
     </main>
     <footer>
       <p>The game is created by <a href="">mr7kitkat</a></p>

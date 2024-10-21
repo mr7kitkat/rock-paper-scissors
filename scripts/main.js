@@ -14,19 +14,21 @@
 // Author - Priyanshu Kumar
 // ============================================================================================
 
-// ============ HELPER AND GAME LOGIC FUNCTION DECLARATION ================
+// ============ HELPER FUNCTION DECLARATION ================
 
 // GLOBAL ARRAY FOR ROCK PAPER AND SCISSORS
 const CHOICES = ["r", "p", "s"];
-// Here 'rock = 0, paper = 1, scissors = 2'
 
-// This is a helper function, to get a random option from CHOICES array
+// Here 'rock = 0, paper = 1, scissors = 2'
+// This is a helper function
 // iT WILL HELP OUR AI to make random CHOICES in the game.
 function random_choice() {
   return Math.floor(Math.random() * 3);
 }
 
 // An Object Constructor function, to onboard players in the game
+// YOU NEED only name to onboard a player -
+// const new_player = new INITIATE_PLAYER(somename);
 function INITIATE_PLAYER(name, score = 0, move = 0) {
   this.name = name;
   this.score = score;
@@ -74,21 +76,39 @@ function checkWinner(player1, player2) {
 // ================ LOGIC ================
 //
 // ------------variables--------------
+
+// Make image cache so that browser doest have to make
+// seqencial requests
 const filepath = "./images/";
 const images = CHOICES.map((item) => {
   const image = new Image();
   image.src = filepath + item + ".png";
   return image;
 });
-// Do  INITIATE_PLAYER
+
+// animation ------------
+function show_component(DOM_Node) {
+  DOM_Node.classList.remove("hidden");
+}
+
+function hide_component(DOM_Node) {
+  DOM_Node.classList.add("hidden");
+}
+
+// Onboarding players  INITIATE_PLAYER
 const computer = new INITIATE_PLAYER("AI");
 const player = new INITIATE_PLAYER("new_player");
 
 //=========== DOM OBJECT DECLARATION =================
 const registration_form = document.querySelector(".registration");
+const winner_popup = document.querySelector(".show-winner");
+const winner_name = winner_popup.querySelector(".name");
+const next_game = winner_popup.querySelector(".nextGame");
 const choice_form = document.querySelector(".choice");
+const main_popup = registration_form.parentElement;
 const game_area = document.querySelector("main");
 const header = document.querySelector("header");
+const continue_game = document.querySelector(".continue");
 
 // 1. Player visit the page and he saw the PLAYER REGISTRATION page.
 //   The PLAYER REGISTRATION page has 1 things,
@@ -98,8 +118,8 @@ const header = document.querySelector("header");
 
 // AS SOON document LOADS IT POPUP THE REGISTRATION FORM
 document.addEventListener("DOMContentLoaded", function () {
-  registration_form.parentElement.classList.remove("hidden");
-  registration_form.classList.remove("hidden");
+  // show_component(main_popup);
+  // show_component(registration_form);
 });
 
 // 2. as soon as game starts REGISTRATION popup closes and a new popup emerges
@@ -107,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
 registration_form.addEventListener("submit", function (e) {
   e.preventDefault();
   player.name = this[0].value || "new_player";
-  this.classList.add("hidden");
-  choice_form.classList.remove("hidden");
+  hide_component(this);
+  show_component(choice_form);
 });
 
 // 3. As user clicks on any option it start a chain process of computer's
@@ -121,11 +141,11 @@ inputs.forEach((input) => {
     player.move = Number(e.target.value);
     computer.move = random_choice();
 
-    // close the form
-    choice_form.classList.add("hidden");
-    choice_form.parentElement.classList.add("hidden");
-    game_area.classList.remove("hidden");
-    header.classList.remove("hidden");
+    // close the form and show game zone
+    hide_component(choice_form);
+    hide_component(main_popup);
+    show_component(game_area);
+    show_component(header);
 
     // Update and load moves data
     const user_move_image = game_area.querySelector(".user img");
@@ -135,15 +155,44 @@ inputs.forEach((input) => {
     user_move_image.src = images[player_idx].src;
     ai_move_image.src = images[computer_idx].src;
     // 4. once the animation is loaded it compares both and update score of the user.
-    console.log("before fight", player, computer);
     fight(player, computer);
-    console.log("after fight", player, computer);
 
+    // updating user score
     const player_score = header.querySelector(".user .score");
     const ai_score = header.querySelector(".ai .score");
     player_score.innerText = player.score;
     ai_score.innerText = computer.score;
+
+    // 5. once score is updates it checks for the winner, if it false then
+    //   game continues as it is.
+    continue_game.addEventListener("click", function (e) {
+      e.stopImmediatePropagation();
+      const result = checkWinner(player, computer);
+      if (result == false) {
+        // close the form and show game zone
+        show_component(choice_form);
+        show_component(main_popup);
+        hide_component(game_area);
+      }
+      if (result.hasOwnProperty("name")) {
+        winner_name.innerText = result.name;
+        hide_component(header);
+        hide_component(game_area);
+        show_component(main_popup);
+        show_component(winner_popup);
+      }
+    });
   });
 });
-// 5. once score is updates it checks for the winner, if it false then
-//   game continues as it is.
+
+next_game.addEventListener("click", function () {
+  // Setting values to default
+  player.move = 0;
+  player.score = 0;
+  computer.move = 0;
+  computer.score = 0;
+
+  // hidding components
+  hide_component(winner_popup);
+  show_component(choice_form);
+});
