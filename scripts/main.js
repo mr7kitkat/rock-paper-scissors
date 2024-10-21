@@ -60,9 +60,15 @@ function fight(player1, player2) {
 // other wise this function will return false means no one
 // won the game till now
 function checkWinner(player1, player2) {
-  if (player1.score >= 3) {
+  let win_condition = 3;
+
+  if (player1.score == player2.score) {
+    win_condition++;
+  }
+
+  if (player1.score >= win_condition) {
     return player1;
-  } else if (player2.score >= 3) {
+  } else if (player2.score >= win_condition) {
     return player2;
   } else {
     return false;
