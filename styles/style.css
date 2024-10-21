@@ -8,7 +8,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   --hero-color-main: #9611ff;
   --white: white;
-  --animation_timing: 0.2s all linear;
+  --animation_timing: 1s all linear;
   --orange_border: 1px solid orange;
 }
 
@@ -223,4 +223,80 @@ main {
   border-color: var(--hero-color-main);
   background-color: white;
   transition: 0.2s all linear;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-top: 20px;
+  }
+
+  .move {
+    max-width: 300px;
+    background-color: var(--white);
+    padding: 30px;
+  }
+
+  .game_area {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .choice {
+    gap: 10px;
+  }
+  .choice img {
+    height: auto;
+    width: 100%;
+    max-width: 60px;
+  }
+
+  .choice label {
+    border-width: 5px;
+    background-color: rgb(255, 238, 0);
+    padding: 20px;
+    border-radius: 50%;
+  }
+
+  .players-move {
+    max-height: calc(100vh - 180px);
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .move {
+    height: auto;
+    max-width: 200px;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 50%;
+  }
+
+  .move img {
+    width: 180px;
+  }
+
+  .player.user {
+    position: fixed;
+    justify-content: flex-end;
+    left: -28px;
+    top: 60px;
+  }
+
+  .player.ai {
+    position: fixed;
+    justify-content: flex-start;
+    right: -30px;
+    bottom: 124px;
+  }
+
+  .player span {
+    margin: 0 8px;
+  }
+
+  /* congratulations */
+
+  .show-winner span {
+    font-size: 24px;
+  }
 }

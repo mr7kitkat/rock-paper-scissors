@@ -118,8 +118,8 @@ const continue_game = document.querySelector(".continue");
 
 // AS SOON document LOADS IT POPUP THE REGISTRATION FORM
 document.addEventListener("DOMContentLoaded", function () {
-  // show_component(main_popup);
-  // show_component(registration_form);
+  show_component(main_popup);
+  show_component(registration_form);
 });
 
 // 2. as soon as game starts REGISTRATION popup closes and a new popup emerges
